@@ -20,7 +20,7 @@ const names = [
 function golfScore(par, strokes) {
 
     if(strokes === 1){
-        return console.log('%s', names[0]);s
+        return console.log('%s', names[0]);
     }
 
     if(strokes <= (par-2)){
