@@ -21,12 +21,13 @@ function flatten(array:(number | number[])[]):number[] {
     return flattened;
 }
 
-function flatten2(array:(any | any[])[]):any[] {
-    const flattened:any[] = [];
+function flatten2<T>(array:(T | T[])[]):T[] {
+
+    const flattened:T[] = [];
 
     for (const element of array) {
         if (Array.isArray(element)) {
-            element; // any[] 
+            element; // any[]
             flattened.push(...element);
         } else {
             element; // any
@@ -35,7 +36,7 @@ function flatten2(array:(any | any[])[]):any[] {
     }
 
     return flattened;
-}
+}    
 
 const flattenedNumbers:number[] = flatten(numbers);
 
