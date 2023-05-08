@@ -8,7 +8,7 @@ function padLeft(value: string, padding: number | string): string {
         return padding + value;
     }
 }
-console.log('[Ejercicio 4.2]', `
+console.log('[Ejercicio 2.2]', `
     ${padLeft('', 0)}
     ${padLeft('', '')}
     ${padLeft('', '')}
