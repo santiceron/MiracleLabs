@@ -28,5 +28,5 @@ function getPointsFor(letter:string):number {
     }, 0);
 }
 
-console.log('[Ejercicio 3.3]', `zoologico vale ${computeScore('zoo')} puntos.`);
+console.log('[Ejercicio 3.3]', `zoologico vale ${computeScore('zoologico')} puntos.`);
 
