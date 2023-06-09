@@ -1,0 +1,33 @@
+@mixin vendor-prefix ($value) {
+
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -ms-transform: $value;
+    -o-transform: $value;
+}
+
+@mixin margin-padding-1 {
+    margin: 30px;
+    padding: 10px;
+}
+
+@mixin borders-1 {
+    border-width: thin;
+    border-style: dotted;
+    border-color: #85DA44;
+    border-radius: 10px;
+}
+
+.div {
+    @include vendor-prefix(scale (1.5));
+    background-color: blue;
+}
+
+h2 p{
+    @include margin-padding-1;
+    float: left;
+}
+
+.button {
+    @include borders-1;
+}
