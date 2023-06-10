@@ -1,0 +1,19 @@
+.button {
+    padding: 10px;
+    border-style: dashed;
+    text-align: center;
+    background-color: white;
+
+    &-primary {
+        @extend .button;
+        color: orange;
+        border-radius: 12px;
+    }
+
+    &-secondary {
+        @extend .button;
+        color: blue;
+        border-radius: 6px;
+    }
+}
+

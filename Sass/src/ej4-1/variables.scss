@@ -1,0 +1,20 @@
+$font1: 'Sans-Serif';
+$font2: 'Helvetica';
+$margin1: 30px;
+$margin2: 15px;
+$padding1: 10px;
+$padding2: 5px;
+
+.div{
+    font-style: $font1;
+    margin: $margin1;
+    padding: $padding1;
+    background-color: grey;
+}
+
+h1 button{
+    font-style: $font2;
+    margin: $margin2;
+    padding: $padding2;
+    background-color: lightblue;
+}

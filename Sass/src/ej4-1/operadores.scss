@@ -1,0 +1,25 @@
+@mixin banner-size($value1: 1, $value2: 0.75){
+    width: 100px * $value1;
+    height: 100px * $value2;
+}
+
+.banner {
+    margin-right: 10px;
+    background-color: lightsalmon;
+    border-radius: 12px;
+
+    &-small{
+        @include banner-size(0.75, 0.5);
+        border-width: thin;
+    }
+
+    &-medium{
+        @include banner-size;
+        border-width: medium;
+    }
+
+    &-big{
+        @include banner-size(2, 1.5);
+        border-width: thick;
+    }
+}

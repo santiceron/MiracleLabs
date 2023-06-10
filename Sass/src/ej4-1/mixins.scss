@@ -1,0 +1,10 @@
+@mixin listas1 ($value1, $value2) {
+    list-style: none;
+    display: inline;
+    margin: $value1;
+    padding: $value2;    
+}
+
+nav.ul {
+    @include listas1(10px, 5px);
+}
