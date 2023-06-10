@@ -1,0 +1,17 @@
+@use 'divs';
+@use 'lists';
+@use 'buttons';
+
+body {
+    background-color: rgb(33, 114, 141);
+}
+  
+h1 {
+    color: white;
+    text-align: center;
+}
+  
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
