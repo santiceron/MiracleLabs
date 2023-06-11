@@ -1,0 +1,66 @@
+.div {
+    margin: 10px;
+    padding: 5px;
+}
+
+.div-main {
+    width: 300px;
+    height: 150px;
+    background-color: #3aacee;
+    border: 2px solid #4d4848;
+}
+
+.div-nav {
+    width: 100px;
+    height: 50px;
+    background-color: #c0804c;
+    border: 1px solid #4d4848;
+}
+
+ul {
+    margin: 5px;
+    padding: 2px;
+    list-style: circle;
+}
+
+ol {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    color: blue;
+}
+
+.button,
+.button-secondary,
+.button-primary {
+    padding: 8px;
+    border-style: double;
+    text-align: center;
+    background-color: lightgreen;
+}
+
+.button-primary {
+    color: orange;
+    border-radius: 12px;
+}
+
+.button-secondary {
+    color: blue;
+    border-radius: 6px;
+}
+
+body {
+    background-color: rgb(33, 114, 141);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
