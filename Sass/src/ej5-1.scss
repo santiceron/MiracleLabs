@@ -1,0 +1,30 @@
+@use 'sass:math';
+
+@mixin font-size($font-size, $height: normal, $spacing: normal) {
+
+    font-size: $font-size * 1px;
+
+    @if $height==normal {
+        line-height: normal;
+    } @else {
+        line-height: math.div($height, $font-size);
+    }
+
+    @if $spacing==normal {
+        letter-spacing: normal;
+    } @else {
+        letter-spacing: #{math.div($spacing, $font-size)}em;
+    }
+}
+
+main{
+    
+    h1{
+        @include font-size(30);
+    }
+    
+    p {
+        @include font-size(10, 15, 1.3);
+    }
+}
+
