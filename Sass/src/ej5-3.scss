@@ -1,0 +1,26 @@
+$days-of-week: (
+    monday:red,
+    tuesday:green,
+    wednesday:blue,
+    thursday:orange,
+    friday:lime,
+    saturday:brown,
+    sunday:gold
+);
+
+@function dayColor($day) {
+    @return map-get($days-of-week, $day);
+}
+
+@each $day, $color in $days-of-week {
+
+    .#{$day} {
+        
+        div {
+            background-color: dayColor(#{$day});
+            color: white;
+            width: 75px;
+            height: 50px;
+        }
+    }
+}
