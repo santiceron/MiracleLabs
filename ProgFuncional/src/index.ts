@@ -79,3 +79,79 @@ let charsByEyeColor = characters.reduce((countMap, character) => {
 console.assert(totalMass === 346);
 console.assert(totalHeight === 712);
 console.assert(totalChars === 52);
+
+//filter
+
+let massOver100 = characters.filter(function (character, index) {
+    return parseInt(character.mass) > 100;
+});
+
+let heightUnder200 = characters.filter(function (character, index) {
+    return parseInt(character.height) < 200;
+});
+
+let maleCharacters = characters.filter(function (character, index) {
+    return character.gender === 'male';
+});
+
+let femaleCharacters = characters.filter(function (character, index) {
+    return character.gender === 'female';
+});
+
+//sort
+
+characters.sort(function (a, b) {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+
+    if (nameA < nameB) {
+        return -1;
+    } else if (nameA > nameB) {
+        return 1;
+    } else {
+        return 0;
+    }
+});
+
+characters.sort(function (a, b){
+    
+    const massA = parseInt(a.mass);
+    const massB = parseInt(b.mass);
+
+    if(massA < massB){
+        return -1;
+    } else if(massA > massB){
+        return 1;
+    } else{
+        return 0;
+    }
+})
+
+characters.sort(function (a, b){
+    
+    const heightA = parseInt(a.height);
+    const heightB = parseInt(b.height);
+
+    if(heightA < heightB){
+        return -1;
+    } else if(heightA > heightB){
+        return 1;
+    } else{
+        return 0;
+    }
+})
+
+characters.sort(function (a, b){
+    
+    const genderA = parseInt(a.gender);
+    const genderB = parseInt(b.gender);
+
+    if(genderA < genderB){
+        return -1;
+    } else if(genderA > genderB){
+        return 1;
+    } else{
+        return 0;
+    }
+})
+
