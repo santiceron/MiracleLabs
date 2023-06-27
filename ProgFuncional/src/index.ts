@@ -82,19 +82,19 @@ console.assert(totalChars === 52);
 
 //filter
 
-let massOver100 = characters.filter(function (character, index) {
+let massOver100 = characters.filter(function (character) {
     return parseInt(character.mass) > 100;
 });
 
-let heightUnder200 = characters.filter(function (character, index) {
+let heightUnder200 = characters.filter(function (character) {
     return parseInt(character.height) < 200;
 });
 
-let maleCharacters = characters.filter(function (character, index) {
+let maleCharacters = characters.filter(function (character) {
     return character.gender === 'male';
 });
 
-let femaleCharacters = characters.filter(function (character, index) {
+let femaleCharacters = characters.filter(function (character) {
     return character.gender === 'female';
 });
 
@@ -155,3 +155,48 @@ characters.sort(function (a, b){
     }
 })
 
+//every
+
+const isEyeColorBlue = characters.every(function(character){
+    return character.eye_color === 'blue';
+});
+
+const isMassOver40 = characters.every(function(character){
+    return parseInt(character.mass) > 40;
+});
+
+const isHeightUnder200 = characters.every(function(character){
+    return parseInt(character.height) < 200;
+});
+
+const areCharactersMales = characters.every(function(character){
+    return character.gender === 'male';
+});
+
+console.assert(isEyeColorBlue === false);
+console.assert(isMassOver40 === true);
+console.assert(isHeightUnder200 === false);
+console.assert(areCharactersMales === false);
+
+//some
+
+const isThereAMale = characters.some(function(character){
+    return character.gender === 'male';
+});
+
+const areThereBlueEyes = characters.some(function(character){
+    return character.eye_color === 'blue';
+});
+
+const isThereHeightOver200 = characters.some(function(character){
+    return parseInt(character.height) > 200;
+});
+
+const isThereMassUnder50 = characters.some(function(character){
+    return parseInt(character.mass) < 50;
+});
+
+console.assert(isThereAMale === true);
+console.assert(areThereBlueEyes === true);
+console.assert(isThereHeightOver200 === true);
+console.assert(isThereMassUnder50 === true);
