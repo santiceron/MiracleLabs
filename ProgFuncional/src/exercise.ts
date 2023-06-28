@@ -29,3 +29,12 @@ const usersByRoles = users.reduce((finalObj: { [key: string]: any[] }, user) => 
     }
     return finalObj;
 }, {});
+
+//Genera una función de búsqueda de un usuario por firstName con find
+
+function findByFirstName (firstName: string) {
+
+    return users.find((user) => {
+            return user.firstName === firstName;
+        });
+}
