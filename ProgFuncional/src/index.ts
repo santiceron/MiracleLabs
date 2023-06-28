@@ -35,6 +35,8 @@ let charactersNames = characters.map(function (character) {
     return character.name;
 });
 
+console.log(charactersNames);
+
 let charactersHeights = characters.map(function (character) {
     return character.height;
 });
