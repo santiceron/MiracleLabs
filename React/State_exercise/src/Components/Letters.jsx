@@ -1,5 +1,7 @@
 import React from "react";
 import { useState} from "react";
+import IncrementButton from "./IncrementButton";
+import DecrementButton from "./DecrementButton";
 
 function Letters() {
 
@@ -13,11 +15,11 @@ function Letters() {
     
     const [myString, setMyString] = useState('');
 
-    let incrementar = () => {
+    let increment = () => {
         setMyString(myString + getLetter());
     }
 
-    let decrementar = () => {
+    let decrement = () => {
         if(myString.length > 0){
             setMyString(myString.slice(0, -1));
         }        
@@ -26,8 +28,8 @@ function Letters() {
     return(
         <div>
             <h1>My string: {myString}</h1>
-            <button onClick={incrementar}>Increment</button>
-            <button onClick={decrementar}>Decrement</button>
+            <IncrementButton onClick={increment}></IncrementButton>
+            <DecrementButton onClick={decrement}></DecrementButton>
         </div>
     );
 }

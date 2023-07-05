@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
+import IncrementButton from './IncrementButton';
+import DecrementButton from './DecrementButton';
+import CounterText from './CounterText';
 
 function Counter() {
-    
     const [count, setCount] = useState(0);
 
     let increment = () => {
@@ -15,9 +17,9 @@ function Counter() {
 
     return (
         <div>
-            <h1>Cuenta: {count}</h1>
-            <button onClick={increment}>Incrementar</button>
-            <button onClick={decrement}>Decrementar</button>
+            <CounterText count={count}></CounterText>
+            <IncrementButton onClick={increment}></IncrementButton>
+            <DecrementButton onClick={decrement}></DecrementButton>
         </div>
     );
 }
