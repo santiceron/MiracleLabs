@@ -1,7 +1,7 @@
 import React from 'react';
 
 const List = ({children}) => {
-    return <ul>{children}</ul>;
+    return <ul className='myList'>{children}</ul>;
 }
 
 export default List;
