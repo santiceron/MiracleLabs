@@ -1,4 +1,4 @@
-class ListNode {
+export class ListNode {
     data: number;
     next: ListNode | null;
 
@@ -8,9 +8,9 @@ class ListNode {
     }
 }
 
-class LinkedList {
-    head: ListNode | null;
-    size: number;
+export class LinkedList {
+    private head: ListNode | null;
+    public size: number;
 
     constructor() {
         this.head = null;
@@ -91,5 +91,22 @@ class LinkedList {
             console.log(current.data);
             current = current.next;
         }
+    }
+
+    invert() {
+        let current = this.head;
+        let previous = null;
+        let nextNode = null;
+
+        while (current !== null) {
+            
+            nextNode = current.next;
+            current.next = previous;
+
+            previous = current;
+            current = nextNode;
+        }
+
+        this.head = previous;
     }
 }
