@@ -114,6 +114,53 @@ class BinaryTree<T> {
             result.push(node.data);
         }
     }
+
+    countElements(): number {
+        return this.countElementsRecursive(this.root);
+    }
+
+    private countElementsRecursive(node: TreeNode<T> | null): number {
+        if (node === null) {
+            return 0;
+        }
+
+        const leftCount = this.countElementsRecursive(node.left);
+        const rightCount = this.countElementsRecursive(node.right);
+
+        return leftCount + rightCount + 1;
+    }
+
+    findMin(): T | null {
+
+        if (this.root === null) {
+            console.log("Empty tree");
+            return null;
+        } else {
+            let currentNode = this.root;
+
+            while (currentNode.left) {
+                currentNode = currentNode.left;
+            }
+
+            return currentNode.data;
+        }
+    }
+
+    findMax(): T | null {
+
+        if (this.root === null) {
+            console.log("Empty tree");
+            return null;
+        } else {
+            let currentNode = this.root;
+
+            while (currentNode.right) {
+                currentNode = currentNode.right;
+            }
+
+            return currentNode.data;
+        }
+    }
 }
 
 const tree = new BinaryTree();
@@ -126,6 +173,10 @@ tree.insert(7);
 tree.insert(6);
 tree.insert(9);
 tree.insert(8);
+console.assert(tree.countElements() === 9);
+console.assert(tree.findMin() === 1);
+console.assert(tree.findMax() === 9);
 tree.inOrder();
 tree.preOrder();
 tree.postOrder();
+
