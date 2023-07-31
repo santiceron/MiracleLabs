@@ -62,7 +62,7 @@ class Stack<T> {
         let current = this.top;
 
         if (!current) {
-            console.log("Pila vacia");
+            console.log("Empty stack");
         } else {
             while (current) {
                 console.log(current.getData());
