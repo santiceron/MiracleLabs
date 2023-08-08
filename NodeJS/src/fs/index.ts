@@ -1,8 +1,7 @@
 import fs from 'fs';
 import http from 'http';
 import path from 'path';
-
-const port = 3000;
+const serverConfig = require('./../config');
 
 //Items 1 and 2
 function showDirectory() {
@@ -25,31 +24,34 @@ fs.readFile('./src/fs/files/myFile.txt', 'utf8', (err, data) => {
 
 http.createServer((req, res) => {
 
-    let filePath = path.resolve(__dirname, '..', '..', 'src', 'fs', 'vistas');
+    const url = req.url;
 
-    if(req.url === '/' || req.url === '/home'){
-        filePath = path.resolve(filePath, 'index.html');
-    } else if (req.url === '/about'){
-        filePath = path.resolve(filePath, 'about.html');
-    } else if(req.url === '/contact'){
-        filePath = path.resolve(filePath, 'contact.html');
-    } else {
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end("<h1>404 Not Found</h1>");
-        return;
-    }
-    
-    fs.readFile(filePath, (error, data) => {
-        if(error){
-            res.writeHead(500, { 'Content-Type': 'text/html' });
-            res.end("<h1>500 Internal server erorr</h1>");
-        } else {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.write(data);
-            res.end();
+    if (url !== undefined) {
+        const fileName = serverConfig.routes[url] || '404';
+
+        if (fileName === '404') {
+            res.writeHead(404, { 'Content-Type': 'text/html' });
+            res.end("<h1>404 Not Found</h1>");
+            return;
         }
-    })
 
-}).listen(port, () => {
-    console.log("Server up in Port: ", port);
+        const filePath = path.resolve(__dirname, '..', '..', 'src', 'fs', 'vistas', fileName);
+
+        fs.readFile(filePath, (error, data) => {
+            if (error) {
+                res.writeHead(500, { 'Content-Type': 'text/html' });
+                res.end("<h1>500 Internal server erorr</h1>");
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.write(data);
+                res.end();
+            }
+        })
+    } else {
+        res.writeHead(400, { 'Content-Type': 'text/html' });
+        res.end("<h1>400 Bad Request</h1>");
+    }
+
+}).listen(serverConfig.port, () => {
+    console.log("Server up in Port: ", serverConfig.port);
 })
