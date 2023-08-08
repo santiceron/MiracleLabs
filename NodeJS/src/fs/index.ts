@@ -4,7 +4,7 @@ import path from 'path';
 
 const port = 3000;
 
-//Item 1 and 2
+//Items 1 and 2
 function showDirectory() {
     console.log("Current directory: ", __dirname);
 }
@@ -21,18 +21,24 @@ fs.readFile('./src/fs/files/myFile.txt', 'utf8', (err, data) => {
     }
 });
 
-//Item 4 and 5
+//Items 4, 5, 6 and 7
 
 http.createServer((req, res) => {
 
-    if(req.url !== '/about'){
+    let filePath = path.resolve(__dirname, '..', '..', 'src', 'fs', 'vistas');
+
+    if(req.url === '/' || req.url === '/home'){
+        filePath = path.resolve(filePath, 'index.html');
+    } else if (req.url === '/about'){
+        filePath = path.resolve(filePath, 'about.html');
+    } else if(req.url === '/contact'){
+        filePath = path.resolve(filePath, 'contact.html');
+    } else {
         res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end("<h1>404 Not found</h1>");
+        res.end("<h1>404 Not Found</h1>");
         return;
     }
-
-    const filePath = path.resolve(__dirname, '..', '..', 'src', 'fs', 'vistas', 'about.html');
-
+    
     fs.readFile(filePath, (error, data) => {
         if(error){
             res.writeHead(500, { 'Content-Type': 'text/html' });
