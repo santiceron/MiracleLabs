@@ -21,7 +21,7 @@ fs.readFile('./src/fs/files/myFile.txt', 'utf8', (err, data) => {
     }
 });
 
-//Item 4
+//Item 4 and 5
 
 http.createServer((req, res) => {
 
@@ -32,7 +32,6 @@ http.createServer((req, res) => {
     }
 
     const filePath = path.resolve(__dirname, '..', '..', 'src', 'fs', 'vistas', 'about.html');
-    console.log(filePath);
 
     fs.readFile(filePath, (error, data) => {
         if(error){
@@ -40,7 +39,8 @@ http.createServer((req, res) => {
             res.end("<h1>500 Internal server erorr</h1>");
         } else {
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(data);
+            res.write(data);
+            res.end();
         }
     })
 
