@@ -1,8 +1,16 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 
 const app = express();
 
-const port = 4444;
+const port = 4567;
+
+function currentUrl(req: Request, res: Response, next: NextFunction){
+    console.log("Current URL: ", req.url);
+    next();
+}
+
+app.use(currentUrl);
+app.use(express.static('public'));
 
 app.get("/", (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html'});
